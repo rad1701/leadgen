@@ -1,0 +1,12 @@
+name: LeadGen Layouts
+type: module
+description: Defines custom Display Suite layouts.
+# core: 8.x
+package: LeadGen
+dependencies:
+  - ds
+# Information added by Drupal.org packaging script on 2016-06-06
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'leadgen'
+datestamp: 1465220912

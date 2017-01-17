@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_paragraphs
+    - node.type.page
+  module:
+    - entity_reference_revisions
+id: node.page.field_main_paragraphs
+field_name: field_main_paragraphs
+entity_type: node
+bundle: page
+label: 'Main paragraphs'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      carousel: carousel
+      text: text
+      tab: tab
+    target_bundles_drag_drop:
+      banner:
+        enabled: true
+        weight: 5
+      carousel:
+        enabled: true
+        weight: 6
+      slide:
+        weight: 7
+        enabled: false
+      text:
+        enabled: true
+        weight: 8
+      tab:
+        enabled: true
+        weight: 9
+      grid:
+        weight: 9
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner.field_banner_color
+    - field.field.paragraph.banner.field_image
+    - field.field.paragraph.banner.field_paragraphs
+    - field.field.paragraph.banner.field_text_color
+    - paragraphs.paragraphs_type.banner
+  module:
+    - entity_reference_revisions
+    - image
+id: paragraph.banner.default
+targetEntityType: paragraph
+bundle: banner
+mode: default
+content:
+  field_image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: banner
+      image_link: ''
+    third_party_settings: {  }
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_banner_color: true
+  field_text_color: true
+  uid: true

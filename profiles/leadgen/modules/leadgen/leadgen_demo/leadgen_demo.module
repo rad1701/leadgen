@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains leadgen_demo.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+use \Drupal\file\Entity\File;
+
+/**
+ * Implements hook_help().
+ */
+function leadgen_demo_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the leadgen_demo module.
+    case 'help.page.leadgen_demo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module used to create demo content.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function leadgen_demo_theme() {
+  $theme = [];
+
+  return $theme;
+}
+
+/**
+ * Helper function used to create paragraph.
+ *
+ * @param $paragraph_type
+ * @param array $paragraph_values
+ * @param null $image
+ * @return \Drupal\Core\Entity\EntityInterface|static
+ */
+function leadgen_demo_generate_paragraph($paragraph_type, $paragraph_values = [], $image = NULL) {
+  // Create entity values array.
+  $values['type'] = $paragraph_type;
+  $values += $paragraph_values;
+
+  $paragraph = Paragraph::create($values);
+  $paragraph->save();
+  return $paragraph;
+}
+
+/**
+ * Helper function used to create file entity.
+ *
+ * @param $file_name
+ * @return \Drupal\Core\Entity\EntityInterface|static
+ */
+function leadgen_demo_create_file($file_name) {
+  $source = DRUPAL_ROOT . '/' . drupal_get_path('module', 'leadgen_demo') . '/images/' . $file_name;
+  $uri  = file_unmanaged_copy($source);
+  $file = File::Create([
+    'uri' => $uri,
+  ]);
+  $file->save();
+  return $file;
+}

@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraphs
+    - paragraphs.paragraphs_type.grid
+  module:
+    - entity_reference_revisions
+id: paragraph.grid.field_paragraphs
+field_name: field_paragraphs
+entity_type: paragraph
+bundle: grid
+label: Paragraphs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+    target_bundles_drag_drop:
+      banner:
+        weight: 7
+        enabled: false
+      carousel:
+        weight: 8
+        enabled: false
+      grid:
+        weight: 9
+        enabled: false
+      slide:
+        weight: 10
+        enabled: false
+      tab:
+        weight: 11
+        enabled: false
+      text:
+        enabled: true
+        weight: 12
+field_type: entity_reference_revisions

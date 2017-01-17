@@ -1,0 +1,29 @@
+name: LeadGen Article
+type: module
+description: Defines Article content type.
+# core: 8.x
+package: LeadGen
+dependencies:
+  - paragraphs
+  - field
+  - node
+  - taxonomy
+  - image
+  - leadgen_base
+config_devel:
+  - core.entity_form_display.node.article.default
+  - core.entity_view_display.node.article.default
+  - core.entity_view_display.node.article.rss
+  - field.field.node.article.body
+  - field.field.node.article.comment
+  - field.field.node.article.field_header_paragraphs
+  - field.field.node.article.field_image
+  - field.field.node.article.field_main_paragraphs
+  - field.field.node.article.field_tags
+  - node.type.article
+  - rdf.mapping.node.article
+# Information added by Drupal.org packaging script on 2016-06-06
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'leadgen'
+datestamp: 1465220912
